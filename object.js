@@ -13,5 +13,14 @@ var object = {
     },
 };
 
-object.fun();//调用属性;
+object.fun();
 
+object.bool = function() {
+    console.log('Hi');
+};
+
+object.value = function(arg) {
+    console.log(`arg => ${arg}`);
+};
+
+object.fun(); // 调用属性;
