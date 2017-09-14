@@ -3,14 +3,19 @@
  */
 
 var arr = ['red', 'green', 'blue', 'yellow', 'pink', 'black', 'gray', 'puple'];
-
+/** 
 console.log(`arr.slice(1, 3) =>! [! ${arr.slice(1, 3)} !]!`);
 console.log(`arr.slice(1, 3) => ${arr.slice(1, 3)} `);
 
 console.log(`[ ${ arr.slice(1, 3)} ]` );
-console.log(` ${arr.slice(1, 3)} ` );
+console.log(` ${arr.slice(1, 3)} ` );s
 
 console.log(`${arr.slice(1, 3)} ` );
+*/
+var a = 1;
+var b = 1;
+console.log(`wtf`);
+console.log(`c=a+b`);
 
 /**
 console.log(arr.slice(1, 4));
