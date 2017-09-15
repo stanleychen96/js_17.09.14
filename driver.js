@@ -4,16 +4,28 @@
 
 var devices = ['/dev/console', '/dev/display'];
 
+/** 
 function open(dev){
      var index = devices.indexOf(dev);
 
-     if(index < 0) {
+    if(index < 0) {
          console.log('not found');
      } else {
          drivers[index].open();
      }
      return index;
 };
+*/
+
+function open(dev){
+  for(var n = 0; n < drivers.length; n++){
+    if(drivers[n].type === dev) {
+        drivers[n].open();
+        return n;
+    }
+  }
+}
+
 
 function write(dev, content){
     return drivers[dev].write(content)
@@ -46,7 +58,7 @@ var drivers = [
     {
         type: '/dev/display',
         open: function(){
-            console.log('display.open')
+            console.log(`display.open`)
         },
         write: function(content){
             console.log(`display.write ${content}`)
@@ -63,3 +75,5 @@ var drivers = [
 var fd = open('/dev/display');
 write (fd, 'content');
 close (fd);
+
+
