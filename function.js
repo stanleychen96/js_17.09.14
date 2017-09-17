@@ -22,3 +22,7 @@ var a = function(){
 var b = a();
 var c = b(1);
 console.log(c);
+b.a = 'mn';
+var d = a();
+d.a = 'jk';
+console.log(b.a,d.a);
