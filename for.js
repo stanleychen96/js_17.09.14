@@ -3,7 +3,7 @@
  */
 
 
- /**
+/**
 var fib = [1, 1];
 for(var n = 2; n <= 40; n++){
     fib[n] = fib[n - 1] + fib[n - 2];
