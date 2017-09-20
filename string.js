@@ -10,7 +10,7 @@ console.log(string.charAt(-1));
 console.log('^-------------------1--------------------^');
 
 var string2 = 'always in your heart';  // string.concat
-var string3 = ',';
+var string3 = 'will';
 console.log(string.concat(string3, string2)); 
 
 console.log('^-------------------2--------------------^');
