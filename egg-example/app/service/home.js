@@ -14,6 +14,23 @@ module.exports = app => {
       return yield app.curl('http://www.sohu.com.cn');// app.curl(URL)
     }
 
+    * time() {
+      function fa(x) {
+        if (x < 10) {
+          return '0' + x;
+        }
+        return x;
+      }
+      const a = new Date();
+      const b = a.getFullYear();
+      const c = fa(a.getMonth() + 1);
+      const d = fa(a.getDate());
+      const e = fa(a.getHours());
+      const f = fa(a.getMinutes());
+      const g = fa(a.getSeconds());
+      return `${b}-${c}-${d}  ${e}:${f}:${g}`;
+    }
+
     * test() {
       return 'home.test';
     }

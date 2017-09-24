@@ -3,12 +3,13 @@
 module.exports = app => {
   class HomeController extends app.Controller {
     * index() {
-      this.ctx.body = yield this.service.home.find();
-
+      const result = this.ctx.helper.foo(this.ctx.request.query.a);
+      const result1 = this.ctx.helper.fdd(this.ctx.request.query.b);
+      this.ctx.body = result + ' ' + result1;
     }
 
     * indexof() {
-      this.home.find = 'cool guy';
+      this.ctx.body = 'cool guy';
     }
 
     * sina() {
@@ -28,13 +29,24 @@ module.exports = app => {
 
     }
 
+    * local() {
+      const result = yield this.service.lodash.tet;
+      const result1 = yield this.service.lodash.back;
+      const result2 = yield this.service.lodash.maker;
+      this.ctx.body = result2 + ' ' + result1 + ' ' + result;
+    }
+
+    * time() { // --------------time----------------
+      const result = yield this.service.home.time;
+      this.ctx.body = result;
+    }
+
     * lodash() {
       const result = yield this.service.lodash.test;
       const result1 = yield this.service.lodash.tet;
       const result2 = yield this.service.mirror.test;
       this.ctx.body = result2 + ' ' + result1 + ' ' + result;
     }
-
 
   }
   return HomeController;
