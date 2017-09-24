@@ -89,6 +89,3 @@ function object(o) {
     F.prototype = o; // 
     return new F();
   }
-var c = 5;
-var b  = c || {};
-console.log(b);
