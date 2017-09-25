@@ -25,7 +25,12 @@ console.log(x.f4()); // x's property is "have" and "f4",not "bigbird"
 y.b;
 z.c;
 w.d;*/
-function duplicate(n) {
-    return [n, n];
-  }
-console.log(_.flatMap([1, 2, 2, 1], duplicate));
+
+/*
+_.forEach({ 'a': 2, 'b': 1 }, function(value, key) {
+  console.log(key);
+});
+*/
+
+var a = [1, 3, 5, 7];
+console.log(_.tail(a));
