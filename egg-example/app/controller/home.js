@@ -23,9 +23,12 @@ module.exports = app => {
     }
 
     * mirror() {
-      const result1 = yield this.service.mirror.test(); // invoke the 'mirror' file in service
-      const result = yield this.service.home.test(); // invoke the 'home' file in service, test is a function in the 'home'
-      this.ctx.body = result + ' ' + result1; // use '+' to link results
+      const result1 = yield this.service.mirror.test();
+      // invoke the 'mirror' file in service
+      const result = yield this.service.home.test();
+      // invoke the 'home' file in service, test is a function in the 'home'
+      this.ctx.body = result + ' ' + result1;
+      // use '+' to link results
 
     }
 
@@ -36,10 +39,10 @@ module.exports = app => {
       this.ctx.body = result2 + ' ' + result1 + ' ' + result;
     }
 
-    * time() { // --------------time----------------
+    * gettime() {
       const result = yield this.service.home.time;
       this.ctx.body = result;
-    }
+    } // --------------time----------------
 
     * lodash() {
       const result = yield this.service.lodash.test;

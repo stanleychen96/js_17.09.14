@@ -8,10 +8,12 @@ module.exports = app => {
       return _.unzipWith(zipped, _.add);
     }
 
+
     * tet() {
       const zipped = _.zip([ 1, 2 ], [ 10, 20 ], [ 100, 200 ]);
       return yield _.unzipWith(zipped, _.add);
     }
+
 
     * maker() {
       const users = [
@@ -22,6 +24,7 @@ module.exports = app => {
       ];
       return _.orderBy(users, [ 'user', 'age' ], [ 'asc', 'desc' ]);
     }
+
 
     * back(x) {
       const backer = function(x) {

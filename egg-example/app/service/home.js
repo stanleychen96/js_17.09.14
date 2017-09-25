@@ -14,6 +14,7 @@ module.exports = app => {
       return yield app.curl('http://www.sohu.com.cn');// app.curl(URL)
     }
 
+    // -------------set up to get time---------------
     * time() {
       function fa(x) {
         if (x < 10) {

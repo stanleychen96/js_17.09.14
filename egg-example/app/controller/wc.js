@@ -1,5 +1,7 @@
 'use strict';
 
+// example
+
 module.exports = app => {
   class WcController extends app.Controller {
     * local() {

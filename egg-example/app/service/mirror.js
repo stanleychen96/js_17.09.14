@@ -6,5 +6,6 @@ module.exports = app => {
       return 'user';
     }
   }
+
   return Mirror; // keep this return with the file name
 };
