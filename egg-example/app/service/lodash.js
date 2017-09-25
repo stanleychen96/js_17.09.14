@@ -10,10 +10,10 @@ module.exports = app => {
 
 
     * tet() {
-      const zipped = _.zip([ 1, 2 ], [ 10, 20 ], [ 100, 200 ]);
-      return yield _.unzipWith(zipped, _.add);
+      return _.zipWith([ 1, 2 ], [ 10, 20 ], [ 100, 200 ], function(a, b, c) {
+        return a + b + c;
+      });
     }
-
 
     * maker() {
       const users = [
@@ -25,12 +25,8 @@ module.exports = app => {
       return _.orderBy(users, [ 'user', 'age' ], [ 'asc', 'desc' ]);
     }
 
-
-    * back(x) {
-      const backer = function(x) {
-        return x + 1;
-      };
-      return backer(x);
+    * sampleSize() {
+      return _.sampleSize([ 1, 2, 3 ], 4);
     }
 
   }

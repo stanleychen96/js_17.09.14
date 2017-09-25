@@ -32,6 +32,13 @@ module.exports = app => {
       return `${b}-${c}-${d}  ${e}:${f}:${g}`;
     }
 
+    * back(x) {
+      const backer = function(x) {
+        return x + 1;
+      };
+      return backer(x);
+    }
+
     * test() {
       return 'home.test';
     }

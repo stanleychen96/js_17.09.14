@@ -34,7 +34,7 @@ module.exports = app => {
 
     * local() {
       const result = yield this.service.lodash.tet;
-      const result1 = yield this.service.lodash.back;
+      const result1 = yield this.service.home.back;
       const result2 = yield this.service.lodash.maker;
       this.ctx.body = result2 + ' ' + result1 + ' ' + result;
     }
