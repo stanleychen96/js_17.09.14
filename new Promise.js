@@ -5,7 +5,7 @@ function asyncFunction() {
   return new Promise(function (resolve, reject) {
     setTimeout(function () {
       resolve('Async Hello world');
-    }, 0);
+    }, 16);
   });
 }
 
@@ -18,6 +18,5 @@ asyncFunction().then(function (value) {
 setTimeout(function() {
     console.log('1----->');  
 }, 0); 
-//confirm the program order
 
 
