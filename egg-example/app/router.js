@@ -41,4 +41,5 @@ module.exports = app => {
   app.post('/m.s', 'member.select');
 
   app.post('/add', 'add.first');
+  app.post('/de', 'add.second');
 };

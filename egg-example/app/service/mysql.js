@@ -58,6 +58,22 @@ module.exports = app => {
       return true;
     }
 
+    * trainning() {
+      const conn = yield app.mysql.beginTransaction(); // 初始化事务
+      try {
+        yield conn.insert('user', { id: 211, age: 12345 }); // 第一步操作
+        yield conn.insert('user', { id: 112, age: 543 }); // 第二步操作
+        yield conn.update('namelist', { id: 100, age: 12345 }, {});
+        yield conn.commit(); // 提交事务
+      } catch (err) {
+        // error, rollback
+        yield conn.rollback(); // 一定记得捕获异常后回滚事务！！
+        this.ctx.logger.error(err);
+        return false;
+      }
+      return true;
+    }
+
   }
   return Mysql;
 };
