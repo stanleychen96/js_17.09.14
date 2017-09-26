@@ -4,6 +4,8 @@ const knex = require('knex')({
   client: 'mysql',
 });
 
+  // --------------------------------user------------------------------
+
 module.exports = app => {
   app.beforeStart(function* () {
     const hasUser = yield app.mysql.query(knex.schema.hasTable('user').toString());
@@ -19,6 +21,8 @@ module.exports = app => {
     }
   });
 
+  // --------------------------------namelist------------------------------
+
   app.beforeStart(function* () {
     const hasbrothers = yield app.mysql.query(knex.schema.hasTable('namelist').toString());
     if (hasbrothers.length === 0) {
@@ -32,5 +36,25 @@ module.exports = app => {
       yield app.mysql.query(userlist.toString());
     }
   });
+
+  // --------------------------------member------------------------------
+
+  app.beforeStart(function* () {
+    const havesisters = yield app.mysql.query(knex.schema.hasTable('member').toString());
+    if (havesisters.length === 0) {
+      const userid = knex.schema.createTableIfNotExists('member', function(level) {
+        level.increments();
+        level.string('name').notNullable().defaultTo('');
+        level.integer('age').notNullable().defaultTo(0);
+        level.integer('classroom').notNullable().defaultTo(0);
+        level.string('teacher').notNullable().defaultTo('');
+        level.timestamp('create_at').defaultTo(knex.fn.now());
+        level.charset('utf8');
+      });
+      yield app.mysql.query(userid.toString());
+    }
+  });
+
+  // --------------------------------------------------------------
 
 };

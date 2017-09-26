@@ -1,10 +1,10 @@
 'use strict';
 
 module.exports = app => {
-  class Mysql_n extends app.Service {
+  class Copy extends app.Service {
     * create(param) {
       try {
-        yield app.mysql.insert('user', param);
+        yield app.mysql.insert('namelist', param); // 'namelist' is the table name
       } catch (e) {
         this.ctx.logger.error(e);
         return false;
@@ -15,7 +15,7 @@ module.exports = app => {
     * get(req) {
       let res;
       try {
-        res = yield app.mysql.get('user', req);
+        res = yield app.mysql.get('namelist', req);
       } catch (e) {
         this.ctx.logger.error(e);
         return false;
@@ -25,7 +25,7 @@ module.exports = app => {
 
     * delete(req) {
       try {
-        yield app.mysql.delete('user', req);
+        yield app.mysql.delete('namelist', req);
       } catch (e) {
         this.ctx.logger.error(e);
         return false;
@@ -35,7 +35,7 @@ module.exports = app => {
 
     * update(req) {
       try {
-        yield app.mysql.update('user', req);
+        yield app.mysql.update('namelist', req);
       } catch (e) {
         this.ctx.logger.error(e);
         return false;
@@ -44,5 +44,5 @@ module.exports = app => {
     }
 
   }
-  return Mysql_n;
+  return Copy;
 };

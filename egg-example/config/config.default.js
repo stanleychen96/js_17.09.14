@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = appInfo => {
-  const config = exports = {};
+  const config = exports = {}; // you can change every 'config' to a same name and still working
 
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1506131706157_1966';

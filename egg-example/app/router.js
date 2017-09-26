@@ -15,6 +15,7 @@ module.exports = app => {
 
   app.get('/local', 'lodash.local'); // callback
 
+
   // ----------------post---------------- 
 
   app.post('/', 'home.indexof'); // a simple example
@@ -32,4 +33,10 @@ module.exports = app => {
   app.post('/n_c', 'list.create');
   app.post('/n_u', 'list.update');
   app.post('/n_d', 'list.delete');
+
+  app.post('/m.g', 'member.get');
+  app.post('/m.c', 'member.create');
+  app.post('/m.u', 'member.update');
+  app.post('/m.d', 'member.delete');
+  app.post('/m.s', 'member.select');
 };
