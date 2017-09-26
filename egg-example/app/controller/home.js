@@ -2,6 +2,7 @@
 
 module.exports = app => {
   class HomeController extends app.Controller {
+    // -----------------helper------------------
     * index() {
       const result = this.ctx.helper.foo(this.ctx.request.query.a);
       const result1 = this.ctx.helper.fdd(this.ctx.request.query.b);

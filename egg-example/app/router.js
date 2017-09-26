@@ -39,4 +39,6 @@ module.exports = app => {
   app.post('/m.u', 'member.update');
   app.post('/m.d', 'member.delete');
   app.post('/m.s', 'member.select');
+
+  app.post('/add', 'add.first');
 };

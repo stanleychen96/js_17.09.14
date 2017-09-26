@@ -43,6 +43,21 @@ module.exports = app => {
       return true;
     }
 
+    * add() {
+      const conn = yield app.mysql.beginTransaction(); // 初始化事务
+      try {
+        yield conn.update('user', { id: 2, age: 12345 }); // 第一步操作
+        yield conn.update('namelist', { id: 1, age: 47 }); // 第二步操作
+        yield conn.commit(); // 提交事务
+      } catch (err) {
+        // error, rollback
+        yield conn.rollback(); // 一定记得捕获异常后回滚事务！！
+        this.ctx.logger.error(err);
+        return false;
+      }
+      return true;
+    }
+
   }
   return Mysql;
 };
