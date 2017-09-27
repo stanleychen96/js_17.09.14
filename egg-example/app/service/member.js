@@ -53,7 +53,7 @@ module.exports = app => {
 
     * update(s) {
       try {
-        yield app.mysql.insert('member', s)
+        yield app.mysql.insert('member', s);
       } catch (q) {
         this.ctx.logger.error(q);
         return false;
