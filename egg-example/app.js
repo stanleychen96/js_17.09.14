@@ -40,14 +40,19 @@ module.exports = app => {
   // --------------------------------member------------------------------
 
   app.beforeStart(function* () {
-    const havesisters = yield app.mysql.query(knex.schema.hasTable('member').toString());
+    const havesisters = yield app.mysql.query(knex.schema.hasTable('mysql').toString());
     if (havesisters.length === 0) {
-      const userid = knex.schema.createTableIfNotExists('member', function(level) {
+      const userid = knex.schema.createTableIfNotExists('mysql', function(level) {
         level.increments();
-        level.string('name').notNullable().defaultTo('');
-        level.integer('age').notNullable().defaultTo(0);
-        level.integer('classroom').notNullable().defaultTo(0);
-        level.string('teacher').notNullable().defaultTo('');
+        level.float('float').notNullable().defaultTo(0.0);
+        level.decimal('decimal').notNullable().defaultTo(0);
+        level.binary('binary').notNullable().defaultTo();
+        level.boolean('boolean').notNullable().defaultTo(0);
+        level.json('json').notNullable().defaultTo();
+        level.text('text').notNullable().defaultTo('');
+        level.bigInteger('bigInteger').notNullable().defaultTo(0);
+        level.dateTime('dateTime').notNullable().defaultTo('2018-09-09 09:09:09.001001');
+        level.time('time').defaultTo(0);
         level.timestamp('create_at').defaultTo(knex.fn.now());
         level.charset('utf8');
       });

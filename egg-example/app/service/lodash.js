@@ -26,7 +26,9 @@ module.exports = app => {
     }
 
     * sampleSize() {
-      return _.sampleSize([ 1, 2, 3 ], 4);
+      const objects = [{ a: 1 }, { b: 2 }];
+      const shallow = _.clone(objects);
+      console.log(shallow[0] === objects[0]);
     }
 
   }
